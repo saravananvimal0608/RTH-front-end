@@ -108,7 +108,6 @@ const AddProperty = () => {
             if (id) {
                 res = await axios.put(`${BASE_URL}/api/${id}`, formData);
                 alert("Property updated successfully");
-             navigate("/listallproperty")
             } else {
                 res = await axios.post(`${BASE_URL}/api/add`, formData);
                 alert("Property added successfully");
@@ -162,6 +161,7 @@ const AddProperty = () => {
                     projectFacilities: []
                 });
             }
+         navigate("/listallproperty")
         } catch (err) {
             console.error("Error:", err.response?.data || err.message);
             alert("Failed to save property");
