@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const BASE_URL = process.env.REACT_APP_BASE_URL;
-    const [data, setData] = useState({ email: "saravanan@gmail.com", password: "saravanan" })
+    const [data, setData] = useState({ email: "saravana@gmail.com", password: "saravanan" })
     const navigate = useNavigate()
 
     const handleChange = (e) => {
