@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import axios from 'axios'
 import { Form, Button, Container } from "react-bootstrap";
 import Select from "react-select";
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate  } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const AddProperty = () => {
  const BASE_URL =process.env.REACT_APP_BASE_URL;
+ const navigate = useNavigate()
     //get the id for update purpose
     const { id } = useParams();
 
@@ -107,6 +108,7 @@ const AddProperty = () => {
             if (id) {
                 res = await axios.put(`${BASE_URL}/api/${id}`, formData);
                 alert("Property updated successfully");
+             navigate("/listallproperty")
             } else {
                 res = await axios.post(`${BASE_URL}/api/add`, formData);
                 alert("Property added successfully");
